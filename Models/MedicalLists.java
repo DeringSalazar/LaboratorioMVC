@@ -18,10 +18,12 @@ public class MedicalLists implements IPerson<Medical> {
     @Override
     public boolean add(Medical element) {
         Medical current = get(element);
-        if (current!=null) 
+        if (current != null) {
             return false;
-        medicalList.add(current);
+        } else {
+            medicalList.add(element);
             return true;
+        }
     }
 
     @Override
