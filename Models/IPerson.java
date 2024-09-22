@@ -20,4 +20,6 @@ public interface IPerson<T> {
     public boolean remove(T element);
         
     public List getAll();
+    
+    public void makeReports(T element);
 }
