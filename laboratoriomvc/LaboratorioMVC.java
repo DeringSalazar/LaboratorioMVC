@@ -5,19 +5,36 @@
 package laboratoriomvc;
 
 import Controllers.CustomerController;
+import Controllers.MedicalController;
 import Models.CustomerList;
-import Views.CustomerFrame;
+import Models.MedicalLists;
+
+import Views.FrmCustomer;
+import Views.FrmMedical;
+import Views.FrmMenu;
 
 public class LaboratorioMVC {
 
     public static void main(String[] args) {
-        CustomerList model = new CustomerList();
-        CustomerFrame view = new CustomerFrame();
-        
-        CustomerController controller = new CustomerController(model, view);
-        view.setController(controller);
-        view.show();
 
+    CustomerList customerModel = new CustomerList(); 
+    MedicalLists medicalModel = new MedicalLists(); 
+
+    FrmCustomer customerView = new FrmCustomer();
+    FrmMedical medicalView = new FrmMedical();
+
+    CustomerController customerController = new CustomerController(customerModel, customerView);
+    MedicalController medicalController = new MedicalController(medicalModel, medicalView);
+
+    // Set controllers in views
+    customerView.setController(customerController);
+    medicalView.setControllers(medicalController);
+
+
+    FrmMenu frmMenu = new FrmMenu();
+    frmMenu.setController(customerController);
+    frmMenu.setControlller(medicalController);  
+    frmMenu.setVisible(true);
     
     }    
 }

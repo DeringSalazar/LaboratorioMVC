@@ -34,7 +34,7 @@ public class CustomerController {
         if(model.add(customer)){
             view.showMessage("Cliente Agregado");
         }else{
-            view.showErrorMessage("Este id ya encuentra registrado");
+            view.showErrorMessage("Error no se pudo agregar al cliente");
         }
     }
     public void update(int id, String email){
@@ -60,21 +60,17 @@ public class CustomerController {
             view.showErrorMessage("Error cliente no encontado");
         }
     }
-    public void read(int id){
-        Customer customer = new Customer(id);
-        customer=model.get(customer);
-        if (customer!=null) {
-           view.display(customer);
-        }else{
-            view.showErrorMessage("Cliente no Encontrado");
-        }
-    }
-    public void readAll(){
-        List<Customer> customers=model.getAll();
-        if (customers!=null) {
-            view.displayAll(customers);
-        }else{
+ public Customer read(int id) {
+    Customer customer = new Customer(id);
+    return model.get(customer); // Devuelve el cliente encontrado
+}
+    public List<Customer> readAll() {
+        List<Customer> customers = model.getAll(); 
+        if (customers != null) {
+            view.displayAll(customers); 
+        } else {
             view.showErrorMessage("No hay datos");
         }
+        return customers; 
     }
 }

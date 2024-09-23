@@ -37,7 +37,7 @@ public class Customer {
     public LocalDate getBirthday() {
         return birthday;
     }
-    private int getAge() {
+    public int getAge() {
         return (birthday != null)?UtilDate.calculateYears(birthday):0;
     }
     public void setBirthday(LocalDate birthday) {

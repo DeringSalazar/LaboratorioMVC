@@ -21,16 +21,19 @@ public class CustomerList implements IPerson<Customer> {
     
     @Override
     public boolean add(Customer customer) {
-        Customer current = get(customer);
-        if (current!=null) 
-            return false;
-        customerList.add(current);
-            return true;
+    Customer current = get(customer);
+ 
+    if (current != null) {  
+        return false;
     }
+    customerList.add(customer);  
+    return true;
+   }
 
+    //mostrar
     @Override
     public Customer get(Customer customer) {
-        for(Customer current : customerList){
+        for (Customer current : customerList) {
             if (current.getId() == customer.getId()) {
                 return current;
             }
@@ -38,6 +41,7 @@ public class CustomerList implements IPerson<Customer> {
         return null;
     }
 
+    
     @Override
     public boolean set(Customer customer) {
         if (customer!=null) {
@@ -51,6 +55,7 @@ public class CustomerList implements IPerson<Customer> {
         return false;
     }
 
+    //eliminar
     @Override
     public boolean remove(Customer customer) {
         if (customer != null && get(customer)!=null) {
@@ -60,12 +65,18 @@ public class CustomerList implements IPerson<Customer> {
         return false;
     }
 
+    //Mostrar todo
     @Override
     public List getAll() {
         if(customerList.isEmpty()){
             return null;
         }
         return customerList;
+    }
+
+    @Override
+    public void makeReports(Customer element) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

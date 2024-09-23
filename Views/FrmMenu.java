@@ -4,17 +4,35 @@
  */
 package Views;
 
+import Controllers.CustomerController;
+import Controllers.MedicalController;
+
 /**
  *
  * @author Dering
  */
 public class FrmMenu extends javax.swing.JFrame {
+    CustomerController controller;
+    MedicalController controlller;
 
+    public void setControlller(MedicalController controlller) {
+        this.controlller = controlller;
+    }
+
+
+    
+
+    public void setController(CustomerController controller) {
+        this.controller = controller;
+    }
+    
+    
     /**
      * Creates new form FrmMenu
      */
     public FrmMenu() {
         initComponents();
+   
     }
 
     /**
@@ -30,6 +48,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +75,14 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem3.setText("Customer");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -76,10 +103,19 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         FrmMedical frm = new FrmMedical();
+        frm.setControllers(controlller);
         this.DeskMenu.add(frm);
         frm.setLocation((this.DeskMenu.getWidth()-frm.getWidth())/2, (this.DeskMenu.getHeight()-frm.getHeight())/2);
         frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    FrmCustomer frm = new FrmCustomer();
+    frm.setController(controller); 
+    this.DeskMenu.add(frm);
+    frm.setLocation((this.DeskMenu.getWidth()-frm.getWidth())/2, (this.DeskMenu.getHeight()-frm.getHeight())/2);
+    frm.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,5 +157,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }
