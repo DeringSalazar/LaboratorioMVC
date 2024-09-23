@@ -33,7 +33,7 @@ public class AppointList implements IPerson<Appointment> {
     @Override
     public Appointment get(Appointment appoint) {
         for(Appointment current : appointList){
-            if (current.getDate() == appoint.getDate() && current.getHour().equals(appoint.getHour())) {
+            if (current.getDate() == appoint.getDate() && current.getHour().equals(appoint.getHour()) && current.getCustomer() == appoint.getCustomer()) {
                 return current;
             }
         }return null;
