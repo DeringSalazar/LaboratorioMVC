@@ -85,6 +85,11 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
         jLabel9.setText("Specialty: ");
 
         TxtSpecialty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegir", "Alergología", "Anestesiología", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Cirugía General", "Neurología", "Hematología", "Radiología" }));
+        TxtSpecialty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSpecialtyActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Salary: ");
@@ -295,6 +300,10 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
         Medical element = new Medical();
         this.display(element);
     }//GEN-LAST:event_BtnReportsActionPerformed
+
+    private void TxtSpecialtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSpecialtyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSpecialtyActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

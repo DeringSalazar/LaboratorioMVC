@@ -29,9 +29,9 @@ public class Appointment {
     public Appointment(LocalDate date, String hour, Customer customer) {
         this(date,hour,customer,null,null);
     }
-    
-    
 
+
+    
     public LocalDate getDate() {
         return date;
     }
