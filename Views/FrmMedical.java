@@ -38,7 +38,6 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
         jLabel4 = new javax.swing.JLabel();
         TxtName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        TxtID = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         TxtFecha = new javax.swing.JFormattedTextField();
@@ -49,6 +48,7 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
         TxtSpecialty = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         TxtSalary = new javax.swing.JTextField();
+        TxtID = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         BtnAdd = new javax.swing.JButton();
         BtnModify = new javax.swing.JButton();
@@ -121,7 +121,7 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel6)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtFecha))
+                        .addComponent(TxtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -278,7 +278,7 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
 
     private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
         this.insert();
-        this.TxtID.setValue("0");
+        this.TxtID.setText("");
         this.TxtNumMedical.setText("");
         this.TxtName.setText("");
         this.TxtFecha.setText("");
@@ -297,8 +297,7 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
     }//GEN-LAST:event_BtnModifyActionPerformed
 
     private void BtnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReportsActionPerformed
-        Medical element = new Medical();
-        this.display(element);
+        this.read();
     }//GEN-LAST:event_BtnReportsActionPerformed
 
     private void TxtSpecialtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSpecialtyActionPerformed
@@ -314,7 +313,7 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
     private javax.swing.JButton BtnSearch;
     private javax.swing.JTextField TxtEmail;
     private javax.swing.JFormattedTextField TxtFecha;
-    private javax.swing.JSpinner TxtID;
+    private javax.swing.JTextField TxtID;
     private javax.swing.JTextField TxtName;
     private javax.swing.JTextField TxtNumMedical;
     private javax.swing.JTextField TxtPhone;
@@ -336,7 +335,7 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
 
     @Override
     public void insert() {
-        controllers.insert(Integer.parseInt(TxtID.getValue().toString()), 
+        controllers.insert(Integer.parseInt(TxtID.getText()), 
                 Integer.parseInt(TxtNumMedical.getText()),
                 TxtName.getText(), 
                 UtilDate.stringToLocalDate(TxtFecha.getText()), 
@@ -348,19 +347,19 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
 
     @Override
     public void update() {
-        controllers.update(Integer.parseInt(TxtID.getValue().toString()), 
+        controllers.update(Integer.parseInt(TxtID.getText()), 
                 TxtPhone.getText(), 
                 TxtEmail.getText());
     }
 
     @Override
     public void delete() {
-        controllers.delete(Integer.parseInt(TxtID.getValue().toString()));
+        controllers.delete(Integer.parseInt(TxtID.getText()));
     }
 
     @Override
     public void read() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        controllers.read(Integer.parseInt(TxtID.getText()));
     }
 
     @Override
@@ -380,7 +379,7 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
 
     @Override
     public void display(Medical element) {
-        TxtID.setValue(element.getId());
+        TxtID.setText("" + element.getId());
         TxtNumMedical.setText("" + element.getNumMedical());
         TxtName.setText(element.getName());
         TxtFecha.setText(UtilDate.localDatetoString(element.getBirthdate()));
