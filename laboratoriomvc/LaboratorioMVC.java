@@ -30,7 +30,6 @@ public class LaboratorioMVC {
     customerView.setController(customerController);
     medicalView.setControllers(medicalController);
 
-
     FrmMenu frmMenu = new FrmMenu();
     frmMenu.setController(customerController);
     frmMenu.setControlller(medicalController);  

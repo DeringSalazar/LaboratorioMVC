@@ -40,11 +40,11 @@ public class MedicalController {
             medical.setPhone(phone);
             medical.setEmail(email);
             if (model.set(medical)) 
-                view.showMessage("Cliente actualizado Correctamente");
+                view.showMessage("Medico actualizado Correctamente");
             else
                 view.showErrorMessage("Erro al actualizar datos");
         }else{
-            view.showErrorMessage("Error el cliente no se encuentra registradp");
+            view.showErrorMessage("Error el medico no se encuentra registradp");
         }
     }
     
@@ -53,9 +53,9 @@ public class MedicalController {
         medical=model.get(medical);
         if (medical!=null) {
             model.remove(medical);
-            view.showMessage("Cliente Eliminado Correctamente");
+            view.showMessage("Medico Eliminado Correctamente");
         }else{
-            view.showErrorMessage("Error cliente no encontado");
+            view.showErrorMessage("Error medico no encontado");
         }
     }
     
@@ -65,7 +65,7 @@ public class MedicalController {
         if (medical!=null) {
            view.display(medical);
         }else{
-            view.showErrorMessage("Cliente no Encontrado");
+            view.showErrorMessage("Error medico no Encontrado");
         }
     }
     

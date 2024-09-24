@@ -19,13 +19,9 @@ public class FrmMenu extends javax.swing.JFrame {
         this.controlller = controlller;
     }
 
-
-    
-
     public void setController(CustomerController controller) {
         this.controller = controller;
     }
-    
     
     /**
      * Creates new form FrmMenu

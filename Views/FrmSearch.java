@@ -216,7 +216,7 @@ public class FrmSearch extends javax.swing.JInternalFrame implements IView<Medic
 
     @Override
     public void read() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override
