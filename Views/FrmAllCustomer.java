@@ -175,16 +175,13 @@ public class FrmAllCustomer extends javax.swing.JInternalFrame implements IView<
             int confirmation = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas eliminar este cliente?", "Confirmación de eliminación", JOptionPane.YES_NO_OPTION);
 
             if (confirmation == JOptionPane.YES_OPTION) {
-                controller.delete(id); // Llama al método delete del controlador
+                controller.delete(id);
                 JOptionPane.showMessageDialog(this, "Cliente eliminado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                refreshTable(); // Método para actualizar la tabla
+                refreshTable(); 
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, introduce un ID válido.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    } else {
-        JOptionPane.showMessageDialog(this, "Por favor, introduce un ID.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
+        JOptionPane.showMessageDialog(this, "Por favor, introduce un ID.", "Error", JOptionPane.ERROR_MESSAGE);        }
+    } 
 }
     private void refreshTable() {
     List<Customer> customers = controller.readAll(); 
@@ -198,8 +195,8 @@ public class FrmAllCustomer extends javax.swing.JInternalFrame implements IView<
     if (!inputId.isEmpty()) {
         try {
             int id = Integer.parseInt(inputId);
-            Customer customer = controller.read(id); // Asegúrate de que este método devuelva el Customer
-            display(customer); // Muestra el cliente en la tabla
+            Customer customer = controller.read(id); 
+            display(customer); 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Por favor, introduce un ID válido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -230,7 +227,7 @@ public class FrmAllCustomer extends javax.swing.JInternalFrame implements IView<
      String[] columnNames = {"ID", "Nombre", "Fecha", "Teléfono", "Correo", "Edad"};
     DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
     
-    this.TablaMostrar.setModel(tableModel); // Limpia la tabla
+    this.TablaMostrar.setModel(tableModel); 
 
     if (element != null) {
         Object[] rowData = {
@@ -241,7 +238,7 @@ public class FrmAllCustomer extends javax.swing.JInternalFrame implements IView<
             element.getEmail(),
             element.getAge()
         };
-        tableModel.addRow(rowData); // Agrega la fila con los datos del cliente
+        tableModel.addRow(rowData); 
     } else {
         JOptionPane.showMessageDialog(this, "Cliente no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
     }

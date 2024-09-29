@@ -21,11 +21,7 @@ public class FrmMenu extends javax.swing.JFrame {
         this.controlller = controlller;
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> b07ee31
+
     public void setControl(HojaController control) {
         this.control = control;
     }
@@ -33,7 +29,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
     
 
->>>>>>> 57d35fa (Clase HojaMedica y controller listo, solo falto terminar el Frame)
+
     public void setController(CustomerController controller) {
         this.controller = controller;
     }
