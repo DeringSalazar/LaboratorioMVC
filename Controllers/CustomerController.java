@@ -37,18 +37,27 @@ public class CustomerController {
             view.showErrorMessage("Error no se pudo agregar al cliente");
         }
     }
-    public void update(int id, String email){
-        Customer customer = new Customer(id);
-        customer= model.get(customer);
-        if (customer!=null) {
-            customer.setEmail(email);
-            if (model.set(customer)) 
-                view.showMessage("Cliente actualizado Correctamente");
-            else
-                view.showErrorMessage("Erro al actualizar datos");
-        }else{
-            view.showErrorMessage("Error el cliente no se encuentra registradp");
-        }
+        public void update(int id, String email) {
+
+            Customer customer = new Customer(id);
+            customer = model.get(customer);
+
+            if (customer != null) {
+
+                if (email != null && !customer.getEmail().equals(email)) {
+
+                    customer.setEmail(email);
+                    if (model.set(customer)) {
+                        view.showMessage("Email Actualizado Correctamente");
+                    } else {
+                        view.showErrorMessage("Error al actualizar los datos");
+                    }
+                } else {
+                    view.showErrorMessage("Solo se puede actualizar el email.");
+                }
+            } else {
+                view.showErrorMessage("Error, el cliente no se encuentra registrado");
+         }
     }
     public void delete(int id){
         Customer customer = new Customer(id);
