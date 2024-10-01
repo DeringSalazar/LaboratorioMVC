@@ -48,12 +48,11 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
         TxtSpecialty = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         TxtSalary = new javax.swing.JTextField();
-        TxtID = new javax.swing.JTextField();
+        TxtID = new javax.swing.JSpinner();
         jPanel2 = new javax.swing.JPanel();
         BtnAdd = new javax.swing.JButton();
         BtnModify = new javax.swing.JButton();
         BtnSearch = new javax.swing.JButton();
-        BtnReports = new javax.swing.JButton();
         BtnDelete = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -104,8 +103,8 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtID, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(TxtID, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TxtNumMedical))
@@ -197,14 +196,6 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
             }
         });
 
-        BtnReports.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnReports.setText("Display");
-        BtnReports.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnReportsActionPerformed(evt);
-            }
-        });
-
         BtnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BtnDelete.setText("Delete");
         BtnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -218,17 +209,15 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(43, 43, 43)
                 .addComponent(BtnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(45, 45, 45)
                 .addComponent(BtnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(BtnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(49, 49, 49)
                 .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(37, 37, 37))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +227,6 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
                     .addComponent(BtnAdd)
                     .addComponent(BtnModify)
                     .addComponent(BtnSearch)
-                    .addComponent(BtnReports)
                     .addComponent(BtnDelete))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -270,22 +258,11 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
-        FrmSearch frm = new FrmSearch();
-        FrmMenu.DeskMenu.add(frm);
-        frm.toFront();
-        frm.setVisible(true);
+        this.read();
     }//GEN-LAST:event_BtnSearchActionPerformed
 
     private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
         this.insert();
-        this.TxtID.setText("");
-        this.TxtNumMedical.setText("");
-        this.TxtName.setText("");
-        this.TxtFecha.setText("");
-        this.TxtPhone.setText("");
-        this.TxtEmail.setText("");
-        this.TxtSpecialty.setSelectedItem("Elegir");
-        this.TxtSalary.setText("");
     }//GEN-LAST:event_BtnAddActionPerformed
 
     private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
@@ -296,10 +273,6 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
         this.update();
     }//GEN-LAST:event_BtnModifyActionPerformed
 
-    private void BtnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReportsActionPerformed
-        this.read();
-    }//GEN-LAST:event_BtnReportsActionPerformed
-
     private void TxtSpecialtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSpecialtyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtSpecialtyActionPerformed
@@ -309,11 +282,10 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
     private javax.swing.JButton BtnAdd;
     private javax.swing.JButton BtnDelete;
     private javax.swing.JButton BtnModify;
-    private javax.swing.JButton BtnReports;
     private javax.swing.JButton BtnSearch;
     private javax.swing.JTextField TxtEmail;
     private javax.swing.JFormattedTextField TxtFecha;
-    private javax.swing.JTextField TxtID;
+    private javax.swing.JSpinner TxtID;
     private javax.swing.JTextField TxtName;
     private javax.swing.JTextField TxtNumMedical;
     private javax.swing.JTextField TxtPhone;
@@ -335,7 +307,7 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
 
     @Override
     public void insert() {
-        controllers.insert(Integer.parseInt(TxtID.getText()), 
+        controllers.insert(Integer.parseInt(TxtID.getValue().toString()), 
                 Integer.parseInt(TxtNumMedical.getText()),
                 TxtName.getText(), 
                 UtilDate.stringToLocalDate(TxtFecha.getText()), 
@@ -347,19 +319,19 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
 
     @Override
     public void update() {
-        controllers.update(Integer.parseInt(TxtID.getText()), 
+        controllers.update(Integer.parseInt(TxtID.getValue().toString()), 
                 TxtPhone.getText(), 
                 TxtEmail.getText());
     }
 
     @Override
     public void delete() {
-        controllers.delete(Integer.parseInt(TxtID.getText()));
+        controllers.delete(Integer.parseInt(TxtID.getValue().toString()));
     }
 
     @Override
     public void read() {
-        controllers.read(Integer.parseInt(TxtID.getText()));
+        controllers.read(Integer.parseInt(TxtID.getValue().toString()));
     }
 
     @Override
@@ -379,14 +351,14 @@ public class FrmMedical extends javax.swing.JInternalFrame implements IView<Medi
 
     @Override
     public void display(Medical element) {
-        TxtID.setText("" + element.getId());
-        TxtNumMedical.setText("" + element.getNumMedical());
+        TxtID.setValue(element.getId());
+        TxtNumMedical.setText(String.valueOf(element.getNumMedical()));
         TxtName.setText(element.getName());
         TxtFecha.setText(UtilDate.localDatetoString(element.getBirthdate()));
         TxtPhone.setText(element.getPhone());
         TxtEmail.setText(element.getEmail());
         TxtSpecialty.setSelectedItem(element.getSpecialty());
-        TxtSalary.setText("" + element.getSalary());
+        TxtSalary.setText(String.valueOf(element.getSalary()));
     }
 
     @Override

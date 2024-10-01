@@ -67,7 +67,7 @@ public class MedicalController {
         }else{
             view.showErrorMessage("Error medico no Encontrado");
         }
-    }
+    }    
     
     public void readAll(){
         List<Medical> medical = model.getAll();
